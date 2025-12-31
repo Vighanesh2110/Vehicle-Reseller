@@ -7,11 +7,10 @@ import os
 
 # ---------------- CONFIG ----------------
 cloudinary.config(
-    cloud_name=st.secrets["CLOUDINARY_NAME"],
-    api_key=st.secrets["CLOUDINARY_API_KEY"],
-    api_secret=st.secrets["CLOUDINARY_API_SECRET"]
+    cloud_name=st.secrets.get("CLOUDINARY_NAME"),
+    api_key=st.secrets.get("CLOUDINARY_API_KEY"),
+    api_secret=st.secrets.get("CLOUDINARY_API_SECRET"),
 )
-
 DATA_FILE = "data.json"
 PROFILE_FILE = "admin_profile.json"
 
@@ -155,3 +154,4 @@ for i, v in enumerate(vehicles):
             save_data(vehicles)
             st.warning("Vehicle Deleted")
             st.rerun()
+
