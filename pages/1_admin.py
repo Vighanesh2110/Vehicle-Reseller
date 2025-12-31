@@ -6,10 +6,12 @@ import cloudinary.uploader
 
 # ---------------- CONFIG ----------------
 cloudinary.config(
-    cloud_name=st.secrets["druva8q8o"],
-    api_key=st.secrets["969647552977694"],
-    api_secret=st.secrets["J_zSuHl3aWgzT-0A1XaMsP4Avyc"]
+    cloud_name=st.secrets["CLOUDINARY_NAME"],
+    api_key=st.secrets["CLOUDINARY_API_KEY"],
+    api_secret=st.secrets["CLOUDINARY_API_SECRET"],
+    secure=True
 )
+
 
 DATA_FILE = "data.json"
 PROFILE_FILE = "admin_profile.json"
@@ -160,4 +162,5 @@ for i, v in enumerate(vehicles):
             save_data(vehicles)
             st.warning("Deleted")
             st.rerun()
+
 
