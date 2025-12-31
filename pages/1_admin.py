@@ -103,7 +103,8 @@ if st.button("Add Vehicle"):
     image_urls = []
 
     for img in images:
-        uploaded = cloudinary.uploader.upload(img)
+        uploaded = cloudinary.uploader.upload( img, folder="vehicles",resource_type="image")
+
         image_urls.append(uploaded["secure_url"])
 
     vehicles.append({
@@ -162,5 +163,6 @@ for i, v in enumerate(vehicles):
             save_data(vehicles)
             st.warning("Deleted")
             st.rerun()
+
 
 
